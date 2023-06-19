@@ -3,13 +3,34 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-image: url("file:///Users/danieldavidson/Downloads/fall.jpg");
+  background-size: cover;
   padding: 1em;
-  color: white;
+  color: black;
+  font-size: 2rem;
   margin-bottom: 1em;
+  height: 12rem;
 }
 
 .App-title {
   font-size: 1.5em;
 }
 
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: row wrap;
+  background-color: #f1f1f1;
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+
+img {
+  width: 20rem;
+  height: 20rem;
+  object-fit: contain;
+}

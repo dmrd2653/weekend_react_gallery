@@ -7,8 +7,27 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
-        <p>Gallery goes here</p>
-        <img src="images/goat_small.jpg"/>
+
+        <div className="flex-container"> 
+
+          <div className="gallery-images"> 
+            <img src="images/art.jpg"/> 
+          </div>
+          
+          <div className="gallery-images"> 
+            <img src="images/baking.jpg"/> 
+          </div>
+          
+          <div className="gallery-images"> 
+            <img src="images/gardening.jpg"/> 
+          </div>
+          
+          <div className="gallery-images"> 
+            <img src="images/my_cat.jpg"/> 
+
+          </div>
+        </div>
+
       </div>
     );
 }
