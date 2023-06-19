@@ -1,34 +1,34 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
+import { GalleryList } from '../GalleryList/GalleryList';
 
 function App() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Gallery of My Life</h1>
-        </header>
 
-        <div className="flex-container"> 
+  let [galleryData, setGalleryData] = useState([]);
 
-          <div className="gallery-images"> 
-            <img src="images/art.jpg"/> 
-          </div>
-          
-          <div className="gallery-images"> 
-            <img src="images/baking.jpg"/> 
-          </div>
-          
-          <div className="gallery-images"> 
-            <img src="images/gardening.jpg"/> 
-          </div>
-          
-          <div className="gallery-images"> 
-            <img src="images/my_cat.jpg"/> 
+  useEffect(() => {
+    getGalleryData()
+    }, []);
 
-          </div>
-        </div>
+  const getGalleryData = () => {
+  fetch('/gallery')
+    .then(response => response.json())
+    .then(data => {
+      setGalleryData(data)
+    })
+    .catch(error => {
+      console.error(error);
+    })
+}
 
-      </div>
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1 className="App-title">Gallery of My Life</h1>
+      </header>
+      <GalleryList galleryData={galleryData}/>
+    </div>
     );
 }
 
