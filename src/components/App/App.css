@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  width:fit-content;
+  height: fit-content;
 }
 
 .App-header {
@@ -8,25 +10,24 @@
   padding: 1em;
   color: black;
   font-size: 2rem;
-  margin-bottom: 1em;
   height: 12rem;
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 3rem;
 }
 
 .flex-container {
   display: flex;
   flex-direction: row;
   flex-wrap: row wrap;
-  background-color: #f1f1f1;
-  height: 100px;
-  width: 100px;
-  margin: 10px;
+  background-color: #F0FFFF;
+  width: 100%;
+  margin: 0px;
+  padding-top: 4rem;
   text-align: center;
   line-height: 75px;
-  font-size: 30px;
+  font-size: 26px;
 }
 
 img {
