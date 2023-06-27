@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import './App.css';
 import { GalleryList } from '../GalleryList/GalleryList';
+import { Form } from '../Form/Form';
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
     }, []);
 
   const getGalleryData = () => {
-    return fetch('/gallery')
+    fetch('/gallery')
       .then(response => response.json())
       .then(setGalleryData)
       .catch(error => {
@@ -26,6 +27,7 @@ function App() {
       <header className="App-header">
         <h1 className="App-title">Gallery of My Life</h1>
       </header>
+      <Form getGalleryData={getGalleryData}/>
       <GalleryList galleryData={galleryData}
       getGalleryData={getGalleryData}/>
     </div>

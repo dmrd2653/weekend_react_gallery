@@ -29,4 +29,22 @@ router.get('/', (req, res) => {
         });
 });
 
+// POST route to DB
+router.post('/', (req, res) => {
+    let newImage = req.body;
+    console.log(newImage);
+    let sqlText = `
+    INSERT INTO "galleryItems" ("path", "description", "likes")
+    VALUES ($1, $2, 0);
+    `;    
+    console.log('POST was sent', sqlText);
+    pool.query(sqlText, [newImage.path, newImage.description])
+        .then((result) => {
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.error(error);
+            res.sendStatus(500);
+        })
+});
 module.exports = router;
