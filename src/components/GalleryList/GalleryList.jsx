@@ -1,6 +1,6 @@
 import { GalleryItem } from "../../GalleryItem/GalleryItem"
 
-export function GalleryList ({galleryData}) {
+export function GalleryList ({galleryData, getGalleryData}) {
 
     return (
     <div className="flex-container">
@@ -10,6 +10,7 @@ export function GalleryList ({galleryData}) {
                     imagePath={`${image.path}`} 
                     info={image.description}
                     like={image.likes}
+                    getGalleryData={getGalleryData}
                 /> 
             ))}
     </div>        

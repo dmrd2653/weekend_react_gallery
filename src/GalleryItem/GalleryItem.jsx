@@ -1,8 +1,7 @@
 import { useState } from "react"
 
-export function GalleryItem ({id, imagePath, info, like}) {
+export function GalleryItem ({id, imagePath, info, like, getGalleryData}) {
 
-    const [likeCount, setLikeCount] = useState(0);
     const [toggle, setToggle] = useState(false);
 
     const toggleImage = () => {
@@ -10,6 +9,20 @@ export function GalleryItem ({id, imagePath, info, like}) {
         setToggle(!toggle);
     };
 
+    const updateLike = (galleryId) => {
+        console.log(galleryId);
+        fetch(`/gallery/like/${galleryId}`, {
+          method: 'PUT',
+          headers: {'Content-Type': 'application/json'}
+        })
+        .then((response) => {
+            getGalleryData()
+        })
+        .catch((error) => {
+          console.error(error);
+        })
+    }
+    
     return (
         <div className="gallery-image"> 
             {/* {`${toggle}`} */}
@@ -19,8 +32,8 @@ export function GalleryItem ({id, imagePath, info, like}) {
             : <img key={id} src={imagePath} onClick={toggleImage} style={{cursor: "pointer"}}/>
             }
             <br/>
-            <button onClick={() => {setLikeCount(likeCount +1)}}>
-                ♥️ Likes {likeCount} 
+            <button onClick={() => {updateLike(id)}}>
+                ♥️ Likes {like} 
             </button>
         </div>
 
