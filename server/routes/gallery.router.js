@@ -6,15 +6,20 @@ const pool = require('../modules/pool');
 
 // PUT Route
 router.put('/like/:id', (req, res) => {
-    console.log(req.params);
-    const galleryId = req.params.id;
-    for(const galleryItem of galleryItems) {
-        if(galleryItem.id == galleryId) {
-            galleryItem.likes += 1;
-        }
+    let likeImg = req.params.id;
+    let updateImg = req.body;
+    let queryText = `
+        UPDATE "react_gallery"
+        SET "likes" = $1
+        WHERE "id" = $2;
+        `;
+    // console.log(req.params);
+    // const galleryId = req.params.id;
+    // for(const galleryItem of galleryItems) {
+    //     if(galleryItem.id == galleryId) {
+    //         galleryItem.likes += 1;
     }
-    res.sendStatus(200);
-}); // END PUT Route
+); // END PUT Route
 
 // GET Route from DB
 router.get('/', (req, res) => {
