@@ -34,8 +34,8 @@ router.post('/', (req, res) => {
     let newImage = req.body;
     console.log(newImage);
     let sqlText = `
-    INSERT INTO "galleryItems" ("path", "description", "likes")
-    VALUES ($1, $2, 0);
+    INSERT INTO "galleryItems" ("path", "description")
+    VALUES ($1, $2);
     `;    
     console.log('POST was sent', sqlText);
     pool.query(sqlText, [newImage.path, newImage.description])
