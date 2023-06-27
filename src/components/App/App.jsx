@@ -12,11 +12,9 @@ function App() {
     }, []);
 
   const getGalleryData = () => {
-    fetch('/gallery')
+    return fetch('/gallery')
       .then(response => response.json())
-      .then(data => {
-        setGalleryData(data)
-      })
+      .then(setGalleryData)
       .catch(error => {
         console.error(error);
       })
